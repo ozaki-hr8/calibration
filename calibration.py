@@ -111,5 +111,10 @@ while True:
     cv2.imshow("Bird's-eye View", birdseye_view)
     cv2.imshow("Original", frame)
 
+    original = cv2.VideoWriter_fourcc(*"MJPG")
+    outputOriginal = cv2.VideoWriter("output/video.avi", original, 25,(frame.shape[1], frame.shape[0]), True)
+    birdseye = cv2.VideoWriter_fourcc(*"MJPG")
+    outputBirdseye = cv2.VideoWriter("output/birdseye_view.avi", birdseye, 25,(birdseye_view.shape[1], birdseye_view.shape[0]), True)
+
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
